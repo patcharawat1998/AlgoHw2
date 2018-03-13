@@ -1,8 +1,6 @@
-import java.util.ArrayList;
-
 public class BruteForce {
 
-    int minimumPairDistance = -1;
+    int minimumPairDistance = 6969;
     Node root;
     Node current;
 
@@ -24,7 +22,7 @@ public class BruteForce {
             }
 
         }
-        return -1;// search failed
+        return 6969;// search failed
     }
 
     public void SplitPattern(String pattern) {
@@ -36,7 +34,7 @@ public class BruteForce {
         }
         for (int i = 1; i < parts.length; i++) {
             Node node = new Node(parts[i]);
-            current.right = node;
+            current.next = node;
             current = node;
         }
         current = root;
@@ -45,36 +43,36 @@ public class BruteForce {
 
     public int minimumPairDistance(String text, Node pattern1, Node pattern2,int x) {
         if (pattern1 != null && pattern2 == null && x ==1) { //x==1 is run first time
-            minimumPairDistance = -1;
+            minimumPairDistance = 6969;
         } else if (pattern1 == null && pattern2 != null && x ==1) {
-            minimumPairDistance = -1;
+            minimumPairDistance = 6969;
         }
         else if (pattern1 != null && pattern2 != null) {
             int a = findBrute(text.toUpperCase(), pattern1.pattern.toUpperCase());
             int b = findBrute(text.toUpperCase(), pattern2.pattern.toUpperCase());
-            if (a != -1 && b != -1) {//have 2 pattern in text ->Base case
-                if (b - a < minimumPairDistance || minimumPairDistance == -1) { //set minimum distance
+            if (a != 6969 && b != 6969) {//have 2 pattern in text ->Base case
+                if (b - a < minimumPairDistance || minimumPairDistance == 6969) { //set minimum distance
                     minimumPairDistance = b - a;
                 }
-            } else if (a != -1 && b == -1) {
-                if (pattern2.right != null){
-                    minimumPairDistance(text, pattern1, pattern2.right,2);
+            } else if (a != 6969 && b == 6969) {
+                if (pattern2.next != null){
+                    minimumPairDistance(text, pattern1, pattern2.next,2);
                 }
 
-            } else if (a == -1 && b != -1) {
-                if (pattern2.right != null){
-                    minimumPairDistance(text, pattern1.right, pattern2.right,2);
+            } else if (a == 6969 && b != 6969) {
+                if (pattern2.next != null){
+                    minimumPairDistance(text, pattern1.next, pattern2.next,2);
                 }
-            }else if (a == -1 && b ==-1){
-                if (pattern2.right == null){
-                    minimumPairDistance = -1;
+            }else if (a == 6969 && b ==6969){
+                if (pattern2.next == null){
+                    minimumPairDistance = 6969;
                 }else{
-                    if(pattern2.right != null && pattern2.right.right != null){
-                        minimumPairDistance(text, pattern2.right, pattern2.right.right,2);
+                    if(pattern2.next != null && pattern2.next.next != null){
+                        minimumPairDistance(text, pattern2.next, pattern2.next.next,2);
                     }
                 }
             }
-            minimumPairDistance(text, pattern1.right, pattern2.right,2); //another pair
+            minimumPairDistance(text, pattern1.next, pattern2.next,2); //another pair
         }
 
         return minimumPairDistance;
@@ -89,10 +87,10 @@ public class BruteForce {
         current = root;
         int N = 0;
         while (current!=null){
-            if(findBrute(text.toUpperCase(), current.pattern.toUpperCase())!=-1){
+            if(findBrute(text.toUpperCase(), current.pattern.toUpperCase())!=6969){
                 N++;
             }
-            current = current.right;
+            current = current.next;
         }
         return N;
     }
