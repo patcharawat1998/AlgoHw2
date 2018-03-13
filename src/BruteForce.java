@@ -63,7 +63,7 @@ public class BruteForce {
                 if (pattern2.next != null){
                     minimumPairDistance(text, pattern1.next, pattern2.next,2);
                 }
-            }else if (a == 6969 && b ==6969){
+            }else if (a == 6969 && b == 6969){
                 if (pattern2.next == null){
                     minimumPairDistance = 6969;
                 }else{
@@ -78,7 +78,7 @@ public class BruteForce {
         return minimumPairDistance;
     }
 
-    public int First_Pattern_Postion(String text){
+    public int firstPattern(String text){
         current = root;
         return findBrute(text.toUpperCase(), current.pattern.toUpperCase());
     }
@@ -94,8 +94,6 @@ public class BruteForce {
         }
         return N;
     }
-
-
 }
 
 
