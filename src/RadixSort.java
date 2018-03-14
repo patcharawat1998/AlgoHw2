@@ -3,17 +3,17 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 public class RadixSort {
-    Node root;
-    Node current;
+     public Node root;
+     public Node current;
 
-    Node root1;
-    Node current1;
+     public Node root1;
+     public Node current1;
 
-    Node root2;
-    Node current2;
+     public Node root2;
+     public Node current2;
 
-    Node root3;
-    Node current3;
+     public Node root3;
+     public Node current3;
     public RadixSort(){
 
     }
@@ -29,16 +29,11 @@ public class RadixSort {
         }
     }
     public void printGoods(int a){
-//        current = root;
-//        while (current!= null){
-//            System.out.println(current.pattern +" ("+current.rule1+","+current.rule2+","+current.rule3+")");
-//            current = current.next;
-//        }
         int N = 1;
         current3 = root3;
         while (current3!= null && N<=a){
             //System.out.println("["+current3.ID+"] "+current3.pattern +" ("+current3.rule1+","+current3.rule2+","+current3.rule3+")");
-            System.out.println("["+current3.ID+"] "+current3.pattern);
+            System.out.println("[ID "+current3.ID+"] "+current3.pattern);
             current3=current3.next;
             N++;
         }
@@ -63,9 +58,6 @@ public class RadixSort {
             }
             Arrays.sort(numList2);
 
-//            for (int s : numList2) {
-//                System.out.println(s);
-//            }
 
             for (int i=0;i<numList2.length;i++){
                 current = root;
@@ -164,6 +156,9 @@ public class RadixSort {
              data[high] = temp;
              reverseArray(data, low + 1, high - 1); // recur on the rest
              }
+    }
+    public void test(){
+        System.out.println(6969);
     }
 
 }

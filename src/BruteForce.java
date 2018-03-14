@@ -1,30 +1,13 @@
 public class BruteForce {
 
-    int minimumPairDistance = 6969;
+    public int minimumPairDistance = 6969;
     Node root;
     Node current;
 
-    // Returns the lowest index at which substring pattern begins in text (or else −1).
-    //return rule2
-    public int findBrute(String text, String pattern) {
+    public BruteForce(){
 
-        int n = text.length();
-        int m = pattern.length();
-        int N = 0;
-        for (int i = 0; i <= n - m; i++) { // try every starting index within text
-            int k = 0; // k is index into pattern
-            while (k < m && (text.charAt(i + k) == pattern.charAt(k))) // kth character of pattern matches
-            {
-                k++;
-            }
-            if (k == m) { // if we reach the end of the pattern,
-                return i; // substring text[i..i+m-1] is a match
-            }
-
-        }
-        return 6969;// search failed
     }
-
+    
     public void SplitPattern(String pattern) {
         String[] parts = pattern.split(" ");
         if (root == null) {
@@ -93,6 +76,25 @@ public class BruteForce {
             current = current.next;
         }
         return N;
+    }
+
+    public int findBrute(String text, String pattern) {
+
+        int n = text.length();
+        int m = pattern.length();
+        int N = 0;
+        for (int i = 0; i <= n - m; i++) { // try every starting index within text
+            int k = 0; // k is index into pattern
+            while (k < m && (text.charAt(i + k) == pattern.charAt(k))) // kth character of pattern matches
+            {
+                k++;
+            }
+            if (k == m) { // if we reach the end of the pattern,
+                return i; // substring text[i..i+m-1] is a match
+            }
+
+        }
+        return 6969;// search failed
     }
 }
 
