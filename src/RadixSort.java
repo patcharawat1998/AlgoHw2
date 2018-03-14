@@ -28,16 +28,21 @@ public class RadixSort {
             current = node;
         }
     }
-    public void printGoods(int a){
-        int N = 1;
-        current3 = root3;
-        while (current3!= null && N<=a){
-            //System.out.println("["+current3.ID+"] "+current3.pattern +" ("+current3.rule1+","+current3.rule2+","+current3.rule3+")");
-            System.out.println("[ID "+current3.ID+"] "+current3.pattern);
-            current3=current3.next;
-            N++;
+    public void printGoods(int GoodsListWanted,int find) {
+        if (find != 0) {
+                int N = 1;
+                current3 = root3;
+                while (current3 != null && N <= find) {
+                    if(N > GoodsListWanted){
+                        break;
+                    }
+                    //System.out.println("["+current3.ID+"] "+current3.pattern +" ("+current3.rule1+","+current3.rule2+","+current3.rule3+")");
+                    //System.out.println("[ID "+current3.ID+"] "+current3.pattern);
+                    System.out.println("- " + current3.pattern);
+                    current3 = current3.next;
+                    N++;
+                }
         }
-
     }
 
     public void radixSort(int rule){
@@ -156,9 +161,6 @@ public class RadixSort {
              data[high] = temp;
              reverseArray(data, low + 1, high - 1); // recur on the rest
              }
-    }
-    public void test(){
-        System.out.println(6969);
     }
 
 }

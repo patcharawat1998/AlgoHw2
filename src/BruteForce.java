@@ -61,7 +61,7 @@ public class BruteForce {
         return minimumPairDistance;
     }
 
-    public int firstPattern(String text){
+    public int firstPattern_Position(String text){
         current = root;
         return findBrute(text.toUpperCase(), current.pattern.toUpperCase());
     }
