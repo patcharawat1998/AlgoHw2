@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public class BruteForce {
 
     public int minimumPairDistance = 6969;
@@ -9,18 +10,26 @@ public class BruteForce {
     }
     
     public void SplitPattern(String pattern) {
-        String[] parts = pattern.split(" ");
-        if (root == null) {
-            Node node = new Node(parts[0]);
-            root = node;
+        String[] parts = pattern.split("\\s+");
+        ArrayList<String> temp = new ArrayList<String>();
+        for(int i =0;i<parts.length;i++){
+            if(!parts[i].isEmpty()){
+                temp.add(parts[i]);
+            }
+        }
+
+            if (root == null) {
+                Node node = new Node(temp.get(0));
+                root = node;
+                current = root;
+            }
+            for (int i = 1; i < temp.size(); i++) {
+                Node node = new Node(temp.get(i));
+                current.next = node;
+                current = node;
+            }
             current = root;
-        }
-        for (int i = 1; i < parts.length; i++) {
-            Node node = new Node(parts[i]);
-            current.next = node;
-            current = node;
-        }
-        current = root;
+
     }
 
 
@@ -34,8 +43,8 @@ public class BruteForce {
             int a = findBrute(text.toUpperCase(), pattern1.pattern.toUpperCase());
             int b = findBrute(text.toUpperCase(), pattern2.pattern.toUpperCase());
             if (a != 6969 && b != 6969) {//have 2 pattern in text ->Base case
-                if (b - a < minimumPairDistance || minimumPairDistance == 6969) { //set minimum distance
-                    minimumPairDistance = b - a;
+                if (Math.abs(b - a) < minimumPairDistance || minimumPairDistance == 6969) { //set minimum distance
+                    minimumPairDistance = Math.abs(b - a);
                 }
             } else if (a != 6969 && b == 6969) {
                 if (pattern2.next != null){
@@ -63,7 +72,17 @@ public class BruteForce {
 
     public int firstPattern_Position(String text){
         current = root;
-        return findBrute(text.toUpperCase(), current.pattern.toUpperCase());
+        int lessfirstPattern_Position = findBrute(text.toUpperCase(), current.pattern.toUpperCase());
+        current = current.next;
+        while (current!=null){
+            int temp = findBrute(text.toUpperCase(), current.pattern.toUpperCase());
+            if(temp < lessfirstPattern_Position){
+                lessfirstPattern_Position = temp;
+            }
+            current = current.next;
+        }
+        current = root;
+        return lessfirstPattern_Position;
     }
 
     public int Amount_PatternInText(String text){
@@ -75,6 +94,7 @@ public class BruteForce {
             }
             current = current.next;
         }
+        current = root;
         return N;
     }
 
