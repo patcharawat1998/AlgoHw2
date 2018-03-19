@@ -1,11 +1,14 @@
 import java.util.ArrayList;
-public class BruteForce {
+import java.util.HashMap;
+import java.util.Map;
+
+public class BoyerMoore {
 
     public int minimumPairDistance = 6969;
     Node root;
     Node current;
 
-    public BruteForce(){
+    public BoyerMoore(){
 
     }
     
@@ -40,8 +43,8 @@ public class BruteForce {
             minimumPairDistance = 6969;
         }
         else if (pattern1 != null && pattern2 != null) {
-            int a = findBrute(text.toUpperCase(), pattern1.pattern.toUpperCase());
-            int b = findBrute(text.toUpperCase(), pattern2.pattern.toUpperCase());
+            int a = findBoyerMoore(text.toUpperCase(), pattern1.pattern.toUpperCase());
+            int b = findBoyerMoore(text.toUpperCase(), pattern2.pattern.toUpperCase());
             if (a != 6969 && b != 6969) {//have 2 pattern in text ->Base case
                 if (Math.abs(b - a) < minimumPairDistance || minimumPairDistance == 6969) { //set minimum distance
                     minimumPairDistance = Math.abs(b - a);
@@ -72,10 +75,10 @@ public class BruteForce {
 
     public int firstPattern_Position(String text){
         current = root;
-        int lessfirstPattern_Position = findBrute(text.toUpperCase(), current.pattern.toUpperCase());
+        int lessfirstPattern_Position = findBoyerMoore(text.toUpperCase(), current.pattern.toUpperCase());
         current = current.next;
         while (current!=null){
-            int temp = findBrute(text.toUpperCase(), current.pattern.toUpperCase());
+            int temp = findBoyerMoore(text.toUpperCase(), current.pattern.toUpperCase());
             if(temp < lessfirstPattern_Position){
                 lessfirstPattern_Position = temp;
             }
@@ -89,7 +92,7 @@ public class BruteForce {
         current = root;
         int N = 0;
         while (current!=null){
-            if(findBrute(text.toUpperCase(), current.pattern.toUpperCase())!=6969){
+            if(findBoyerMoore(text.toUpperCase(), current.pattern.toUpperCase())!=6969){
                 N++;
             }
             current = current.next;
@@ -98,24 +101,31 @@ public class BruteForce {
         return N;
     }
 
-    public int findBrute(String text, String pattern) {
 
-        int n = text.length();
-        int m = pattern.length();
-        int N = 0;
-        for (int i = 0; i <= n - m; i++) { // try every starting index within text
-            int k = 0; // k is index into pattern
-            while (k < m && (text.charAt(i + k) == pattern.charAt(k))) // kth character of pattern matches
-            {
-                k++;
-            }
-            if (k == m) { // if we reach the end of the pattern,
-                return i; // substring text[i..i+m-1] is a match
-            }
-
-        }
-        return 6969;// search failed
-    }
+     public static int findBoyerMoore(String text, String pattern) {
+         int n = text.length();
+         int m = pattern.length();
+         if (m == 0) return 0; // trivial search for empty string
+         Map<Character,Integer> last = new HashMap<>(); // the 'last' map
+         for (int i=0; i < n; i++)
+             last.put(text.charAt(i), -1); // set −1 as default for all text characters
+         for (int k=0; k < m; k++)
+             last.put(pattern.charAt(k), k); // rightmost occurrence in pattern is last
+         // start with the end of the pattern aligned at index m−1 of the text
+         int i = m-1; // an index into the text
+         int k = m-1; // an index into the pattern
+         while (i < n) {
+             if (text.charAt(i) == pattern.charAt(k)) { // a matching character
+                 if (k == 0) return i; // entire pattern has been found
+                 i--; // otherwise, examine previous
+                 k--; // characters of text/pattern
+                 } else {
+                 i += m - Math.min(k, 1 + last.get(text.charAt(i))); // case analysis for jump step
+                 k = m - 1; // restart at end of pattern
+                 }
+             }
+         return 6969; // pattern was never found
+         }
 }
 
 
