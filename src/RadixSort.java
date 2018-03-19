@@ -36,8 +36,7 @@ public class RadixSort {
                     if(N > GoodsListWanted){
                         break;
                     }
-                    //System.out.println("["+current3.ID+"] "+current3.pattern +" ("+current3.rule1+","+current3.rule2+","+current3.rule3+")");
-                    //System.out.println("[ID "+current3.ID+"] "+current3.pattern);
+                    //System.out.println("[ID->"+current3.ID+"] "+current3.pattern +" ("+current3.rule1+","+current3.rule2+","+current3.rule3+")");
                     System.out.println("- " + current3.pattern);
                     current3 = current3.next;
                     N++;

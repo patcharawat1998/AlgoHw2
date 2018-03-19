@@ -8,7 +8,6 @@ public class Homework2 {
 
             while (true) {
                 try {
-
                     int GoodsListWanted;
                     if (args.length > 0) {
                         GoodsListWanted = Integer.parseInt(args[0]);
@@ -25,6 +24,7 @@ public class Homework2 {
                         pattern = Sc.nextLine();
 
                     } while (pattern.isEmpty());
+                    long startTime = System.nanoTime();
 
 
                     ArrayList<String> myArrList = new ArrayList<String>();
@@ -36,18 +36,13 @@ public class Homework2 {
                     } catch (Exception ex) {
 
                     }
-
-//        for (String s : myArrList){
-//            System.out.println(s);
-//        }
-                    //System.out.println(myArrList.size()); //size array = 1024
-
-                    //String pattern = s;
-
+                    BruteForce bruteForce = new BruteForce();
                     BoyerMoore boyerMoore = new BoyerMoore();
-                    boyerMoore.SplitPattern(pattern);
-                    RadixSort r = new RadixSort();
+                    KMP kmp = new KMP();
 
+                    bruteForce.SplitPattern(pattern);//--------------------------------------------------------------------------
+
+                    RadixSort r = new RadixSort();
                     Node key[] = new Node[myArrList.size()];
 
 
@@ -55,23 +50,14 @@ public class Homework2 {
                     int find = 0;
 
                     for (int i = 0; i < myArrList.size(); i++) {
-                        int a = boyerMoore.Amount_PatternInText(myArrList.get(i));//rule1
-                        //System.out.print("("+a+",");
-                        int b = boyerMoore.firstPattern_Position(myArrList.get(i));//rule2
-                        //System.out.print(b+",");
-                        int c = boyerMoore.minimumPairDistance(myArrList.get(i), boyerMoore.current, boyerMoore.current.next, 1);
+                        int a = bruteForce.Amount_PatternInText(myArrList.get(i));//rule1  //-------------------------------------------------------------------------------------------
+                        int b = bruteForce.firstPattern_Position(myArrList.get(i));//rule2  //-------------------------------------------------------------------------------------------
+                        int c = bruteForce.minimumPairDistance(myArrList.get(i), bruteForce.current, bruteForce.current.next, 1);//-------------------------------------------------------------------------------------------
                         N++;
-                        if (a != 0) {
-                            //                System.out.print(++R+"->"+N+"->");
-                            //                System.out.print("("+a+",");
-                            //                System.out.print(b+",");
-                            //                System.out.println(c+")");
-                            //                //r.AddNode(myArrList.get(i),a,b,c);
+                        if (a != 0) { //find pattern in text
                             find++;
-                            //System.out.println(find+"-->"+myArrList.get(i));
                         }
-                        boyerMoore.minimumPairDistance = 6969;
-
+                        bruteForce.minimumPairDistance = 6969; //-------------------------------------------------------------------------------------------
                         r.AddNode(myArrList.get(i), a, b, c, N);
                     }
 
@@ -82,6 +68,13 @@ public class Homework2 {
                     r.printGoods(GoodsListWanted, find);
 
                     System.out.println(find + " product(s) matched");
+
+
+
+                    long endTime = System.nanoTime();
+
+                    long duration = (endTime - startTime)/1000000;  //divide by 1000000 to get milliseconds.
+                    System.out.println(duration);
 
 
 
