@@ -40,7 +40,7 @@ public class Homework2 {
                     BoyerMoore boyerMoore = new BoyerMoore();
                     KMP kmp = new KMP();
 
-                    bruteForce.SplitPattern(pattern);//--------------------------------------------------------------------------
+                    boyerMoore.SplitPattern(pattern);//--------------------------------------------------------------------------
 
                     RadixSort r = new RadixSort();
                     Node key[] = new Node[myArrList.size()];
@@ -50,14 +50,14 @@ public class Homework2 {
                     int find = 0;
 
                     for (int i = 0; i < myArrList.size(); i++) {
-                        int a = bruteForce.Amount_PatternInText(myArrList.get(i));//rule1  //-------------------------------------------------------------------------------------------
-                        int b = bruteForce.firstPattern_Position(myArrList.get(i));//rule2  //-------------------------------------------------------------------------------------------
-                        int c = bruteForce.minimumPairDistance(myArrList.get(i), bruteForce.current, bruteForce.current.next, 1);//-------------------------------------------------------------------------------------------
+                        int a = boyerMoore.Amount_PatternInText(myArrList.get(i));//rule1  //-------------------------------------------------------------------------------------------
+                        int b = boyerMoore.firstPattern_Position(myArrList.get(i));//rule2  //-------------------------------------------------------------------------------------------
+                        int c = boyerMoore.minimumPairDistance(myArrList.get(i), boyerMoore.current, boyerMoore.current.next, 1);//-------------------------------------------------------------------------------------------
                         N++;
                         if (a != 0) { //find pattern in text
                             find++;
                         }
-                        bruteForce.minimumPairDistance = 6969; //-------------------------------------------------------------------------------------------
+                        boyerMoore.minimumPairDistance = 6969; //-------------------------------------------------------------------------------------------
                         r.AddNode(myArrList.get(i), a, b, c, N);
                     }
 
