@@ -102,7 +102,7 @@ public class BoyerMoore {
     }
 
 
-     public static int findBoyerMoore(String text, String pattern) {
+     public  int findBoyerMoore(String text, String pattern) {
          int n = text.length();
          int m = pattern.length();
          if (m == 0) return 0; // trivial search for empty string

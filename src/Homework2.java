@@ -24,7 +24,7 @@ public class Homework2 {
                         pattern = Sc.nextLine();
 
                     } while (pattern.isEmpty());
-                    long startTime = System.nanoTime();
+
 
 
                     ArrayList<String> myArrList = new ArrayList<String>();
@@ -40,41 +40,118 @@ public class Homework2 {
                     BoyerMoore boyerMoore = new BoyerMoore();
                     KMP kmp = new KMP();
 
-                    boyerMoore.SplitPattern(pattern);//--------------------------------------------------------------------------
+                    for(int round = 1;round<=3;round++){
+                        long startTime = System.nanoTime();
+                        if(round==1){
+                            bruteForce.SplitPattern(pattern);//--------------------------------------------------------------------------
 
-                    RadixSort r = new RadixSort();
-                    Node key[] = new Node[myArrList.size()];
+                            RadixSort r = new RadixSort();
+                            Node key[] = new Node[myArrList.size()];
 
 
-                    int N = 0;
-                    int find = 0;
+                            int N = 0;
+                            int find = 0;
 
-                    for (int i = 0; i < myArrList.size(); i++) {
-                        int a = boyerMoore.Amount_PatternInText(myArrList.get(i));//rule1  //-------------------------------------------------------------------------------------------
-                        int b = boyerMoore.firstPattern_Position(myArrList.get(i));//rule2  //-------------------------------------------------------------------------------------------
-                        int c = boyerMoore.minimumPairDistance(myArrList.get(i), boyerMoore.current, boyerMoore.current.next, 1);//-------------------------------------------------------------------------------------------
-                        N++;
-                        if (a != 0) { //find pattern in text
-                            find++;
+                            for (int i = 0; i < myArrList.size(); i++) {
+                                int a = bruteForce.Amount_PatternInText(myArrList.get(i));//rule1  //-------------------------------------------------------------------------------------------
+                                int b = bruteForce.firstPattern_Position(myArrList.get(i));//rule2  //-------------------------------------------------------------------------------------------
+                                int c = bruteForce.minimumPairDistance(myArrList.get(i), bruteForce.current, bruteForce.current.next, 1);//-------------------------------------------------------------------------------------------
+                                N++;
+                                if (a != 0) { //find pattern in text
+                                    find++;
+                                }
+                                bruteForce.minimumPairDistance = 6969; //-------------------------------------------------------------------------------------------
+                                r.AddNode(myArrList.get(i), a, b, c, N);
+                            }
+
+
+                            r.radixSort(3);
+                            r.radixSort(2);
+                            r.radixSort(1);
+                            r.printGoods(GoodsListWanted, find);
+
+                            System.out.println(find + " product(s) matched");
+
+                            long endTime = System.nanoTime();
+
+                            long duration = (endTime - startTime)/1000000;  //divide by 1000000 to get milliseconds.
+                            System.out.println("BruteForce run time = "+duration+"\n");
+                        }else if(round ==2){
+                            boyerMoore.SplitPattern(pattern);//--------------------------------------------------------------------------
+
+                            RadixSort r = new RadixSort();
+                            Node key[] = new Node[myArrList.size()];
+
+
+                            int N = 0;
+                            int find = 0;
+
+                            for (int i = 0; i < myArrList.size(); i++) {
+                                int a = boyerMoore.Amount_PatternInText(myArrList.get(i));//rule1  //-------------------------------------------------------------------------------------------
+                                int b = boyerMoore.firstPattern_Position(myArrList.get(i));//rule2  //-------------------------------------------------------------------------------------------
+                                int c = boyerMoore.minimumPairDistance(myArrList.get(i), boyerMoore.current, boyerMoore.current.next, 1);//-------------------------------------------------------------------------------------------
+                                N++;
+                                if (a != 0) { //find pattern in text
+                                    find++;
+                                }
+                                boyerMoore.minimumPairDistance = 6969; //-------------------------------------------------------------------------------------------
+                                r.AddNode(myArrList.get(i), a, b, c, N);
+                            }
+
+
+                            r.radixSort(3);
+                            r.radixSort(2);
+                            r.radixSort(1);
+                            r.printGoods(GoodsListWanted, find);
+
+                            System.out.println(find + " product(s) matched");
+
+
+
+                            long endTime = System.nanoTime();
+
+                            long duration = (endTime - startTime)/1000000;  //divide by 1000000 to get milliseconds.
+                            System.out.println("BoyerMoore run time = "+duration+"\n");
+                        }else {
+                            kmp.SplitPattern(pattern);//--------------------------------------------------------------------------
+
+                            RadixSort r = new RadixSort();
+                            Node key[] = new Node[myArrList.size()];
+
+
+                            int N = 0;
+                            int find = 0;
+
+                            for (int i = 0; i < myArrList.size(); i++) {
+                                int a = kmp.Amount_PatternInText(myArrList.get(i));//rule1  //-------------------------------------------------------------------------------------------
+                                int b = kmp.firstPattern_Position(myArrList.get(i));//rule2  //-------------------------------------------------------------------------------------------
+                                int c = kmp.minimumPairDistance(myArrList.get(i), kmp.current, kmp.current.next, 1);//-------------------------------------------------------------------------------------------
+                                N++;
+                                if (a != 0) { //find pattern in text
+                                    find++;
+                                }
+                                kmp.minimumPairDistance = 6969; //-------------------------------------------------------------------------------------------
+                                r.AddNode(myArrList.get(i), a, b, c, N);
+                            }
+
+
+                            r.radixSort(3);
+                            r.radixSort(2);
+                            r.radixSort(1);
+                            r.printGoods(GoodsListWanted, find);
+
+                            System.out.println(find + " product(s) matched");
+
+
+
+                            long endTime = System.nanoTime();
+
+                            long duration = (endTime - startTime)/1000000;  //divide by 1000000 to get milliseconds.
+                            System.out.println("KMP run time = "+duration+"\n");
                         }
-                        boyerMoore.minimumPairDistance = 6969; //-------------------------------------------------------------------------------------------
-                        r.AddNode(myArrList.get(i), a, b, c, N);
                     }
 
 
-                    r.radixSort(3);
-                    r.radixSort(2);
-                    r.radixSort(1);
-                    r.printGoods(GoodsListWanted, find);
-
-                    System.out.println(find + " product(s) matched");
-
-
-
-                    long endTime = System.nanoTime();
-
-                    long duration = (endTime - startTime)/1000000;  //divide by 1000000 to get milliseconds.
-                    System.out.println(duration);
 
 
 

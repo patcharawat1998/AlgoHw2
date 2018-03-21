@@ -98,7 +98,7 @@ public class KMP {
         return N;
     }
 
-    public static int findKMP(String text, String pattern) {
+    public  int findKMP(String text, String pattern) {
          int n = text.length();
          int m = pattern.length();
          if (m == 0) return 0; // trivial search for empty string
@@ -118,7 +118,7 @@ public class KMP {
          return 6969; // reached end without match
     }
 
-    private static int[ ] computeFailKMP(String pattern) {
+    private  int[ ] computeFailKMP(String pattern) {
          int m = pattern.length();
          int[ ] fail = new int[m]; // by default, all overlaps are zero
          int j = 1;
