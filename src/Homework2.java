@@ -12,7 +12,7 @@ public class Homework2 {
                     if (args.length > 0) {
                         GoodsListWanted = Integer.parseInt(args[0]);
                     } else {
-                        GoodsListWanted = 10;
+                        GoodsListWanted = 20;
                     }
 
 
@@ -65,9 +65,9 @@ public class Homework2 {
                             }
 
 
-                            r.radixSort(3);
-                            r.radixSort(2);
-                            r.radixSort(1);
+                            r.radixSort(3);//sort at digit 1
+                            r.radixSort(2);//sort at digit 2
+                            r.radixSort(1);//sort at digit 3
                             r.printGoods(GoodsListWanted, find);
 
                             System.out.println(find + " product(s) matched");
@@ -75,7 +75,7 @@ public class Homework2 {
                             long endTime = System.nanoTime();
 
                             long duration = (endTime - startTime)/1000000;  //divide by 1000000 to get milliseconds.
-                            System.out.println("BruteForce run time = "+duration+"\n");
+                            System.out.println("BruteForce run time = "+duration+" ms\n");
                         }else if(round ==2){
                             boyerMoore.SplitPattern(pattern);//--------------------------------------------------------------------------
 
@@ -111,7 +111,7 @@ public class Homework2 {
                             long endTime = System.nanoTime();
 
                             long duration = (endTime - startTime)/1000000;  //divide by 1000000 to get milliseconds.
-                            System.out.println("BoyerMoore run time = "+duration+"\n");
+                            System.out.println("BoyerMoore run time = "+duration+" ms\n");
                         }else {
                             kmp.SplitPattern(pattern);//--------------------------------------------------------------------------
 
@@ -147,7 +147,7 @@ public class Homework2 {
                             long endTime = System.nanoTime();
 
                             long duration = (endTime - startTime)/1000000;  //divide by 1000000 to get milliseconds.
-                            System.out.println("KMP run time = "+duration+"\n");
+                            System.out.println("KMP run time = "+duration+" ms\n");
                         }
                     }
 

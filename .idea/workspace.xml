@@ -15,8 +15,8 @@
       <file leaf-file-name="Homework2.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Homework2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state relative-caret-position="171">
+              <caret line="77" column="83" lean-forward="false" selection-start-line="77" selection-start-column="83" selection-end-line="77" selection-end-column="83" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#907#915#0" expanded="true" />
@@ -28,7 +28,7 @@
       <file leaf-file-name="KMP.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/KMP.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
+            <state relative-caret-position="4080">
               <caret line="120" column="12" lean-forward="false" selection-start-line="120" selection-start-column="12" selection-end-line="120" selection-end-column="12" />
               <folding />
             </state>
@@ -38,7 +38,7 @@
       <file leaf-file-name="BruteForce.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BruteForce.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="13">
+            <state relative-caret-position="476">
               <caret line="14" column="28" lean-forward="false" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="28" />
               <folding />
             </state>
@@ -48,7 +48,7 @@
       <file leaf-file-name="BoyerMoore.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BoyerMoore.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1578">
+            <state relative-caret-position="3468">
               <caret line="104" column="12" lean-forward="false" selection-start-line="104" selection-start-column="12" selection-end-line="104" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -60,8 +60,8 @@
       <file leaf-file-name="RadixSort.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/RadixSort.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2264">
-              <caret line="88" column="34" lean-forward="true" selection-start-line="88" selection-start-column="34" selection-end-line="88" selection-end-column="34" />
+            <state relative-caret-position="2924">
+              <caret line="88" column="34" lean-forward="false" selection-start-line="88" selection-start-column="34" selection-end-line="88" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -121,14 +121,14 @@
         <option value="$PROJECT_DIR$/src/Node.java" />
         <option value="$PROJECT_DIR$/src/RadixSort.java" />
         <option value="$PROJECT_DIR$/src/BruteForce.java" />
-        <option value="$PROJECT_DIR$/src/Homework2.java" />
         <option value="$PROJECT_DIR$/src/KMP.java" />
         <option value="$PROJECT_DIR$/src/BoyerMoore.java" />
+        <option value="$PROJECT_DIR$/src/Homework2.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="261" />
+    <option name="x" value="718" />
     <option name="y" value="-9" />
     <option name="width" value="814" />
     <option name="height" value="877" />
@@ -148,8 +148,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -167,6 +165,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -684,7 +684,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/KMP.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
+        <state relative-caret-position="4080">
           <caret line="120" column="12" lean-forward="false" selection-start-line="120" selection-start-column="12" selection-end-line="120" selection-end-column="12" />
           <folding />
         </state>
@@ -692,7 +692,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BruteForce.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13">
+        <state relative-caret-position="476">
           <caret line="14" column="28" lean-forward="false" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="28" />
           <folding />
         </state>
@@ -700,8 +700,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/RadixSort.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2264">
-          <caret line="88" column="34" lean-forward="true" selection-start-line="88" selection-start-column="34" selection-end-line="88" selection-end-column="34" />
+        <state relative-caret-position="2924">
+          <caret line="88" column="34" lean-forward="false" selection-start-line="88" selection-start-column="34" selection-end-line="88" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -710,7 +710,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BoyerMoore.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1578">
+        <state relative-caret-position="3468">
           <caret line="104" column="12" lean-forward="false" selection-start-line="104" selection-start-column="12" selection-end-line="104" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -720,8 +720,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Homework2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="171">
+          <caret line="77" column="83" lean-forward="false" selection-start-line="77" selection-start-column="83" selection-end-line="77" selection-end-column="83" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#907#915#0" expanded="true" />
